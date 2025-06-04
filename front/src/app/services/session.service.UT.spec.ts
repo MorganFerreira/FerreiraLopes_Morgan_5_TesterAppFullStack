@@ -1,9 +1,9 @@
 import { TestBed } from '@angular/core/testing';
 import { expect } from '@jest/globals';
-
 import { SessionService } from './session.service';
 
-describe('SessionService', () => {
+describe('SessionService UT', () => {
+  
   let service: SessionService;
 
   beforeEach(() => {

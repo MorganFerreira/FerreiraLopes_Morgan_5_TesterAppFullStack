@@ -1,19 +1,17 @@
 import { HttpClientModule } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
 import { expect } from '@jest/globals';
+import { UserService } from './user.service';
 
-import { TeacherService } from './teacher.service';
-
-describe('TeacherService', () => {
-  let service: TeacherService;
+describe('UserService UT', () => {
+  
+  let service: UserService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports:[
-        HttpClientModule
-      ]
+      imports:[HttpClientModule]
     });
-    service = TestBed.inject(TeacherService);
+    service = TestBed.inject(UserService);
   });
 
   it('should be created', () => {

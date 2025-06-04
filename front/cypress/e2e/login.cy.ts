@@ -1,27 +1,29 @@
-describe('Login spec', () => {
-  it('Login successfull', () => {
-    cy.visit('/login')
+import '../support/commands.ts'
 
-    cy.intercept('POST', '/api/auth/login', {
-      body: {
-        id: 1,
-        username: 'userName',
-        firstName: 'firstName',
-        lastName: 'lastName',
-        admin: true
-      },
+describe('LoginAdmin, LoginUser, Login with bad credential, Logout', () => {
+
+    it('should login admin', () => {
+        cy.loginAdmin()
     })
 
-    cy.intercept(
-      {
-        method: 'GET',
-        url: '/api/session',
-      },
-      []).as('session')
+    it('should login user', () => {
+        cy.loginUser()
+    })
 
-    cy.get('input[formControlName=email]').type("yoga@studio.com")
-    cy.get('input[formControlName=password]').type(`${"test!1234"}{enter}{enter}`)
+    it('should login with bad credential', () => {
+        cy.visit('/login')
+        //Mock bad credentials response
+        cy.intercept('POST', '/api/auth/login', { statusCode: 401,
+            body: { message: 'Bad credentials'}
+        })
+        cy.get('input[formControlName=email]').type("badCredential@gmail.com")
+        cy.get('input[formControlName=password]').type(`${"badCredential"}{enter}{enter}`)
+        cy.contains('An error occurred').should('be.visible');
+    })
 
-    cy.url().should('include', '/sessions')
-  })
-});
+    it('should logout', () => {
+        cy.loginAdmin()
+        cy.contains('Logout').click()
+        cy.url().should('include', '/')
+    })
+})
