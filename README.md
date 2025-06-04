@@ -10,7 +10,7 @@ Cette application permet à des utilisateurs de s'inscrire à des sessions de Yo
 
 ## Récupérer les sources du projet
 
-`git clone https://github.com/MorganFerreira/FerreiraLopes_Morgan_5_TesterAppFullStack_051325`
+`git clone https://github.com/MorganFerreira/FerreiraLopes_Morgan_5_TesterAppFullStack`
 
 ## Installer la base de données
 
