@@ -41,7 +41,7 @@ Se connecter en tant que root dans mysql, puis taper :
 ## Lancer les tests
 
 ### Front :
-  - dans un terminal, depuis le répertoire front : `npm run test`
+  - dans un terminal, depuis le répertoire front : `jest`
 
 ### End to end :
   - dans un terminal, depuis le répertoire front : `npm run e2e`
@@ -53,7 +53,7 @@ Se connecter en tant que root dans mysql, puis taper :
 ## Générer les rapports de couverture.
 
 ### Front :
-  - dans un terminal, depuis le répertoire front : `npm run test:coverage`
+  - dans un terminal, depuis le répertoire front : `jest --coverage`
   - Présent dans front/coverage/jest/lcov-report/index.html
 
 ### End to end :
